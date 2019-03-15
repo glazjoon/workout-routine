@@ -1,0 +1,12 @@
+# JetBrains project files
+.idea
+
+# VS Code workspace files
+.vscode
+
+# NPM
+node_modules
+
+# NativeScript application
+hooks
+platforms
