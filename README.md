@@ -1,4 +1,4 @@
-# NativeScript-Vue Application
+# Workout Routine
 
 > A native application built with NativeScript-Vue
 
