@@ -1,6 +1,6 @@
 <template>
   <Page>
-    <ActionBar title="Träningsschema">
+    <ActionBar title="Workout Routine">
       <ActionItem android.systemIcon="ic_menu_add" text="Skapa" @tap="onTapCreate()"/>
     </ActionBar>
     <Exercises></Exercises>

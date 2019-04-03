@@ -4,6 +4,14 @@ export default {
     state: {
         exercises: [
             {
+                id: 0,
+                name: 'Chins',
+                reps: 10,
+                sets: 3,
+                weight: -45,
+                increment: 5
+            },
+            {
                 id: 1,
                 name: 'Bänkpress',
                 reps: 10,
@@ -16,9 +24,33 @@ export default {
                 name: 'Benpress',
                 reps: 10,
                 sets: 3,
-                weight: 85,
+                weight: 120,
+                increment: 5
+            },
+            {
+                id: 3,
+                name: 'Framsida lår',
+                reps: 10,
+                sets: 3,
+                weight: 55,
                 increment: 2.5
-            }
+            },
+            {
+                id: 4,
+                name: 'Baksida lår',
+                reps: 10,
+                sets: 3,
+                weight: 60,
+                increment: 2.5
+            },
+            {
+                id: 5,
+                name: 'Bicepscurl',
+                reps: 10,
+                sets: 3,
+                weight: 10,
+                increment: 2
+            },
         ]
     },
     mutations: {

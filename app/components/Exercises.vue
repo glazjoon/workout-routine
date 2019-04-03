@@ -34,30 +34,22 @@
     </v-template>
 
     <v-template name="itemswipe">
-      <GridLayout columns="*, auto, auto" backgroundColor="White">
+      <GridLayout columns="*, auto" backgroundColor="White">
         <StackLayout
           id="increment-btn"
           col="1"
           class="swipe-item right"
           orientation="horizontal"
           @tap="onIncrementExercise"
+          backgroundColor="#666"
         >
-          <Label text="Inc" verticalAlignment="center" horizontalAlignment="center"/>
-        </StackLayout>
-        <StackLayout
-          id="edit-btn"
-          col="2"
-          class="swipe-item right"
-          orientation="horizontal"
-          @tap="onEditExercise"
-        >
-          <Label text="Edit" verticalAlignment="center" horizontalAlignment="center"/>
+          <IconButton width="60" className="fas" icon="fa-arrow-circle-up" />
         </StackLayout>
       </GridLayout>
     </v-template>
 
     <v-template name="footer">
-      <Button>Skapa ny övning</Button>
+      <Button>Create Exercise</Button>
     </v-template>
   </RadListView>
 </template>
@@ -66,9 +58,13 @@
 import { INCREMENT_EXERCISE } from '../types';
 import { mapState } from 'vuex';
 import routes from '../routes';
+import IconButton from './IconButton.vue';
 
 export default {
   name: 'Exercises',
+  components: {
+    IconButton
+  },
   computed: {
     ...mapState({
       exercises: state => state.exercises
@@ -89,8 +85,6 @@ export default {
       });
     },
     onIncrementExercise({ object }) {
-      console.log(object);
-      console.log(object.bindingContext);
       this.$store.commit(INCREMENT_EXERCISE, object.bindingContext);
     },
     onSwipeStarted({ data, object }) {
@@ -98,10 +92,8 @@ export default {
       const swipeView = object;
 
       const incrementButton = swipeView.getViewById('increment-btn');
-      const editButton = swipeView.getViewById('edit-btn');
 
-      const totalMeasuredWidth =
-        incrementButton.getMeasuredWidth() + editButton.getMeasuredWidth();
+      const totalMeasuredWidth = incrementButton.getMeasuredWidth();
 
       swipeLimits.right = totalMeasuredWidth;
       swipeLimits.threshold = totalMeasuredWidth;
@@ -145,7 +137,6 @@ export default {
 }
 
 .swipe-item {
-  width: 65px;
   border-bottom-width: 1px;
   border-bottom-color: #efefef;
   background-color: #efefef;
